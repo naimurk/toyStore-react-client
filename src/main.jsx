@@ -13,6 +13,7 @@ import Signup from './Layout/Signup.jsx';
 import AuthProvider from './AuthProvider/AuthProvider.jsx';
 import PostToy from './Layout/PostToy';
 import AllToy from './pages/AllToy';
+import MyPost from './pages/MyPost';
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         path : '/allPostedToy',
         element : <AllToy></AllToy>
+      },
+      {
+        path : '/myPosted',
+        element : <MyPost></MyPost>
       }
     ]
   },
