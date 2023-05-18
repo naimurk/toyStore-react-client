@@ -12,28 +12,33 @@ import Login from './Layout/Login.jsx';
 import Signup from './Layout/Signup.jsx';
 import AuthProvider from './AuthProvider/AuthProvider.jsx';
 import PostToy from './Layout/PostToy';
+import AllToy from './pages/AllToy';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
-    children : [
+    children: [
       {
-        path : '/',
-        element : <Home></Home>
-      }, 
-      {
-        path : '/login',
-        element : <Login></Login>
+        path: '/',
+        element: <Home></Home>
       },
       {
-        path : '/signup', 
-        element : <Signup></Signup>
-
-      }, 
+        path: '/login',
+        element: <Login></Login>
+      },
       {
-        path : '/addPost',
-        element : <PostToy></PostToy>
+        path: '/signup',
+        element: <Signup></Signup>
+
+      },
+      {
+        path: '/addPost',
+        element: <PostToy></PostToy>
+      },
+      {
+        path : '/allPostedToy',
+        element : <AllToy></AllToy>
       }
     ]
   },
@@ -42,12 +47,12 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <div className='max-w-7xl mx-auto'>
-     <React.StrictMode>
-        
-        <AuthProvider>
-        <RouterProvider router={router} />
-        </AuthProvider>
+    <React.StrictMode>
 
-  </React.StrictMode>,
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
+
+    </React.StrictMode>,
   </div>
 )

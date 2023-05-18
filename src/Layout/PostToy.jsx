@@ -20,7 +20,20 @@ const PostToy = () => {
             name, email, price, quantity, photo , rating, category, toyname
         }
 
-        console.log(addedProduct);
+        fetch('http://localhost:5000/postedToy', {
+            method : "post", 
+            headers : {
+                'content-type': 'Application/json'
+            },
+            body : JSON.stringify(addedProduct)
+        })
+        .then(res=> res.json())
+        .then(data => {
+            console.log(data);
+            if(data?.insertedId){
+                alert('posted successfully')
+            }
+        })
     }
 
 
