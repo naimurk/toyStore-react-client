@@ -11,6 +11,7 @@ import Home from './Home/Home.jsx';
 import Login from './Layout/Login.jsx';
 import Signup from './Layout/Signup.jsx';
 import AuthProvider from './AuthProvider/AuthProvider.jsx';
+import PostToy from './Layout/PostToy';
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
         path : '/signup', 
         element : <Signup></Signup>
 
+      }, 
+      {
+        path : '/addPost',
+        element : <PostToy></PostToy>
       }
     ]
   },
