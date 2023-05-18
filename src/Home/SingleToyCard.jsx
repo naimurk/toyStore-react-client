@@ -1,0 +1,23 @@
+import React from 'react';
+
+const SingleToyCard = ({ singleToy }) => {
+    const {toyName,title, img, price, quantity , rating , _id} = singleToy
+    // console.log(price,quantity,_id);
+    return (
+        <div className="card w-96 bg-base-100 shadow-xl">
+            <figure><img className='w-full' src={img} alt="Shoes" /></figure>
+            <div className="card-body">
+                <h2 className="card-title">{title}</h2>
+                <p className='text-2xl'>{toyName}</p>
+                <p className='font-bold'>price: {price}</p>
+                <p>ratings: {rating}</p>
+
+                <div className="card-actions justify-end">
+                    <button className="btn btn-warning">View Details</button>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default SingleToyCard;
