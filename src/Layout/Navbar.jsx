@@ -1,8 +1,16 @@
 
 import logo from "../assets/img/icon/figure toys-logos.jpeg"
 import { Link } from "react-router-dom";
+import  { useContext } from 'react';
+import { AuthContex } from "../AuthProvider/AuthProvider";
 
 const Navbar = () => {
+  const {user, logOut} = useContext(AuthContex);
+  const handleLogout = ()=> {
+    logOut()
+    .then(()=> {})
+    .catch(error => console.log(error))
+  }
     return (
         <div className="navbar bg-base-100">
 
@@ -16,7 +24,10 @@ const Navbar = () => {
     <li className="list-none mx-3 text-lg"><Link>Add toys</Link></li>
     <li className="list-none mx-3 text-lg"><Link>All toys</Link></li>
     <li className="list-none mx-3 text-lg"><Link>Blog</Link></li>
-    <li className="list-none mx-3 text-lg"><Link to={'login'}>login</Link></li>
+    {
+      user?.email ? <li className="list-none mx-3 text-lg"><button onClick={handleLogout}>log out </button></li>:
+      <li className="list-none mx-3 text-lg"><Link to={'/login'}>login</Link></li>
+    }
   </div>
   <div className="navbar-end">
      <h1>img here</h1>
