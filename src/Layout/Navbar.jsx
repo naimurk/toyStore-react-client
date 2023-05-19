@@ -29,7 +29,7 @@ const Navbar = () => {
           //  : 
         }
         <li className="list-none mx-3 text-lg"><Link to={'/allPostedToy'} >All toys</Link></li>
-        <li className="list-none mx-3 text-lg"><Link>Blog</Link></li>
+        <li className="list-none mx-3 text-lg"><Link to={'/blog'} >Blog</Link></li>
         {
           user?.email ? <li className="list-none mx-3 text-lg"><button onClick={handleLogout}>log out </button></li> :
             <li className="list-none mx-3 text-lg"><Link to={'/login'}>login</Link></li>
