@@ -16,11 +16,13 @@ import AllToy from './pages/AllToy';
 import MyPost from './pages/MyPost';
 import SingleSpecific from './pages/SingleSpecific';
 import SingleMySpecific from './pages/SingleMySpecific';
+import Error from './Layout/Error';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement : <Error></Error>,
     children: [
       {
         path: '/',
