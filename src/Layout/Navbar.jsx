@@ -20,8 +20,14 @@ const Navbar = () => {
       </div>
       <div className="navbar-center">
         <li className="list-none mx-3 text-lg"><Link>Home</Link></li>
-        <li className="list-none mx-3 text-lg"><Link to={'/myPosted'}>My toys</Link></li>
-        <li className="list-none mx-3 text-lg"><Link to={'/addPost'} >Add toys</Link></li>
+        {
+          user?.email ? <>
+           <li className="list-none mx-3 text-lg"><Link to={'/myPosted'}>My toys</Link></li>
+           <li className="list-none mx-3 text-lg"><Link to={'/addPost'} >Add toys</Link></li>
+          </> : ''
+          // user?.email ? <li className="list-none mx-3 text-lg"><Link to={'/myPosted'}>My toys</Link></li>
+          //  : 
+        }
         <li className="list-none mx-3 text-lg"><Link to={'/allPostedToy'} >All toys</Link></li>
         <li className="list-none mx-3 text-lg"><Link>Blog</Link></li>
         {

@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from "react-router-dom";
+import { AuthContex } from '../AuthProvider/AuthProvider';
 
 const SinglePostedToy = ({singlePostedToy}) => {
+    const {user} = useContext(AuthContex)
     // console.log(singlePostedToy);
     const {toyname,title, photo, price, email, name, quantity , category, rating , _id} = singlePostedToy
     return (
@@ -29,7 +31,7 @@ const SinglePostedToy = ({singlePostedToy}) => {
         <td>{quantity ? quantity : 'quantity not found'}</td>
         <td>{email}</td>
         <th>
-           <Link  to = {`/posted/${_id}`}><button className="btn btn-ghost btn-xs">details</button></Link>
+           <Link  to = { user?.email ? `/posted/${_id}`: '/login' }><button className="btn btn-ghost btn-xs">details</button></Link>
            
         </th>
       </tr>
