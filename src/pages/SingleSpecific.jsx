@@ -8,8 +8,8 @@ const SingleSpecific = () => {
    const {img, quantity, price, title, rating, toyName, category} = loadedData;
 //    console.log(price, img, quantity,  title, rating, toyName, category);
     return (
-        <div className="card lg:card-side w-full my-40 bg-base-100 shadow-xl">
-        <img className='w-1/2' src={img} alt="Album"/>
+        <div className="card p-24 lg:card-side w-full my-40 bg-base-100 shadow-xl">
+        <img className='w-1/2 h-96' src={img} alt="Album"/>
         <div className="card-body w-1/2">
           <h2 className="card-title text-4xl">{title}</h2>
           <p className='text-2xl font-bold text-warning'> name: {toyName}</p>

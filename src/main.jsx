@@ -15,6 +15,7 @@ import PostToy from './Layout/PostToy';
 import AllToy from './pages/AllToy';
 import MyPost from './pages/MyPost';
 import SingleSpecific from './pages/SingleSpecific';
+import SingleMySpecific from './pages/SingleMySpecific';
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,11 @@ const router = createBrowserRouter([
         element : <SingleSpecific></SingleSpecific>,
         loader : ({params})=> fetch(`http://localhost:5000/toys/singleToys/${params.id}`)
       },
+      {
+        path : '/posted/:id',
+        element : <SingleMySpecific></SingleMySpecific>,
+        loader : ({params}) => fetch(`http://localhost:5000/postedToy/${params.id}`)
+      }
       
     ]
   },
