@@ -30,6 +30,24 @@ const MyPost = () => {
             });
     }
 
+    const handleDelete = (id) => {
+        // console.log(id);
+        const proceed = confirm('are you sure')
+        if(proceed){
+            fetch (`http://localhost:5000/deleted/${id}`, {
+                method : 'DELETE'
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if(data.deletedCount>0){
+                    const remaing = posted.filter(post => post._id !== id)
+                    setPosted(remaing)
+                }
+            })
+        }
+    }
+
 
     return (
         <div className='mb-11'>
@@ -49,6 +67,7 @@ const MyPost = () => {
                         <th>seller email</th>
                         <th>Details</th>
                         <th>edit</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -58,6 +77,7 @@ const MyPost = () => {
                             key={singleMyPosted._id}
                             singleMyPosted={singleMyPosted}
                             handleUpDate = {handleUpDate}
+                            handleDelete = {handleDelete}
                         >
 
                         </SingleMyPosted>)
@@ -75,6 +95,7 @@ const MyPost = () => {
                         <th>seller email</th>
                         <th>Details</th>
                         <th>edit</th>
+                        <th>Action</th>
                     </tr>
                 </tfoot>
 

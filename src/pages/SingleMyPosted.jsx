@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-const SingleMyPosted = ({ singleMyPosted,handleUpDate }) => {
+const SingleMyPosted = ({ singleMyPosted, handleUpDate, handleDelete }) => {
   // console.log(singleMyPosted);
   const { toyname, title, photo, price, email, name, quantity, category, rating, _id } = singleMyPosted;
-  
+
   const handleSubmit = (event) => {
     event.preventDefault()
     const form = event.target;
@@ -16,13 +16,13 @@ const SingleMyPosted = ({ singleMyPosted,handleUpDate }) => {
     const _id = form.id.value
 
 
-   const formData = {
-    toyname, price, quantity, photo, title, _id
-   }
+    const formData = {
+      toyname, price, quantity, photo, title, _id
+    }
 
-   handleUpDate(formData)
-   
-   
+    handleUpDate(formData)
+
+
 
 
 
@@ -76,16 +76,16 @@ const SingleMyPosted = ({ singleMyPosted,handleUpDate }) => {
         <div className="modal">
           <div className="modal-box w-11/12 max-w-5xl">
             <form onSubmit={handleSubmit} >
- 
+
               <div className='grid grid-cols-1 gap-7 lg:grid-cols-2'>
-              <input type="text" defaultValue={toyname} placeholder='toy name' name="toyname"  className="input input-bordered input-warning w-full max-w-xs" />
-              <input type="text" defaultValue={_id} placeholder='id' name="id"  className="  hidden input input-bordered input-warning w-full max-w-xs" />
-              <input type="text" defaultValue={price} placeholder='price' name="price"  className="input input-bordered input-warning w-full max-w-xs" />
-              <input type="text" defaultValue={quantity} placeholder='quantity' name="quantity"  className="input input-bordered input-warning w-full max-w-xs" />
-              <input type="text" defaultValue={title} placeholder='title' name="title"  className="input input-bordered input-warning w-full max-w-xs" />
-              <input type="text" defaultValue={photo} placeholder='photo' name="photo"  className="input input-bordered input-warning w-full max-w-xs" />
+                <input type="text" defaultValue={toyname} placeholder='toy name' name="toyname" className="input input-bordered input-warning w-full max-w-xs" />
+                <input type="text" defaultValue={_id} placeholder='id' name="id" className="  hidden input input-bordered input-warning w-full max-w-xs" />
+                <input type="text" defaultValue={price} placeholder='price' name="price" className="input input-bordered input-warning w-full max-w-xs" />
+                <input type="text" defaultValue={quantity} placeholder='quantity' name="quantity" className="input input-bordered input-warning w-full max-w-xs" />
+                <input type="text" defaultValue={title} placeholder='title' name="title" className="input input-bordered input-warning w-full max-w-xs" />
+                <input type="text" defaultValue={photo} placeholder='photo' name="photo" className="input input-bordered input-warning w-full max-w-xs" />
               </div>
-              
+
               <input type="submit" className='btn btn-block btn-warning' value="update post" />
             </form>
             <div className="modal-action">
@@ -96,6 +96,12 @@ const SingleMyPosted = ({ singleMyPosted,handleUpDate }) => {
 
         {/* end modal */}
       </th>
+      <th>
+        <button onClick={()=> handleDelete(_id)} className="btn btn-circle">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
+        </button>
+      </th>
+
     </tr>
   );
 };
