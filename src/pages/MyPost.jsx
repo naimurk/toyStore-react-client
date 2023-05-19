@@ -3,15 +3,32 @@ import { useContext, useEffect, useState } from 'react';
 import { AuthContex } from '../AuthProvider/AuthProvider';
 import SingleMyPosted from './SingleMyPosted';
 
+
 const MyPost = () => {
     const { user } = useContext(AuthContex)
     const [posted, setPosted] = useState([])
+    const [control, setControl] = useState(false);
     // console.log(user?.email);
     useEffect(() => {
         fetch(`http://localhost:5000/myPosted/${user?.email}`)
             .then(res => res.json())
             .then(data => setPosted(data))
-    }, [user])
+    }, [user, control])
+
+    const handleUpDate = (data) => {
+        fetch(`http://localhost:5000/updateJob/${data._id}`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+          })
+            .then((res) => res.json())
+            .then((result) => {
+              if (result.modifiedCount > 0) {
+                setControl(!control);
+              }
+              console.log(result);
+            });
+    }
 
 
     return (
@@ -31,6 +48,7 @@ const MyPost = () => {
                         <th>quantity</th>
                         <th>seller email</th>
                         <th>Details</th>
+                        <th>edit</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -39,6 +57,7 @@ const MyPost = () => {
                         posted && posted.map(singleMyPosted => <SingleMyPosted
                             key={singleMyPosted._id}
                             singleMyPosted={singleMyPosted}
+                            handleUpDate = {handleUpDate}
                         >
 
                         </SingleMyPosted>)
@@ -55,6 +74,7 @@ const MyPost = () => {
                         <th>quantity</th>
                         <th>seller email</th>
                         <th>Details</th>
+                        <th>edit</th>
                     </tr>
                 </tfoot>
 
