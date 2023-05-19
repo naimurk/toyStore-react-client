@@ -14,6 +14,7 @@ import AuthProvider from './AuthProvider/AuthProvider.jsx';
 import PostToy from './Layout/PostToy';
 import AllToy from './pages/AllToy';
 import MyPost from './pages/MyPost';
+import SingleSpecific from './pages/SingleSpecific';
 
 const router = createBrowserRouter([
   {
@@ -44,7 +45,13 @@ const router = createBrowserRouter([
       {
         path : '/myPosted',
         element : <MyPost></MyPost>
-      }
+      },
+      {
+        path : '/category/:id',
+        element : <SingleSpecific></SingleSpecific>,
+        loader : ({params})=> fetch(`http://localhost:5000/toys/singleToys/${params.id}`)
+      },
+      
     ]
   },
 ]);

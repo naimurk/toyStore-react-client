@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 const SingleMyPosted = ({ singleMyPosted}) => {
     console.log( singleMyPosted);
@@ -29,7 +30,9 @@ const SingleMyPosted = ({ singleMyPosted}) => {
         <td>{quantity ? quantity : 'quantity not found'}</td>
         <td>{email}</td>
         <th>
-          <button className="btn btn-ghost btn-xs">details</button>
+        <Link  to = {`/posted/${_id}`}><button className="btn btn-ghost btn-xs">details</button></Link>
+          <Link><button className="btn btn-ghost btn-xs">edit</button></Link>
+           <Link><button className="btn btn-ghost btn-xs">X</button></Link>
         </th>
       </tr>
     );

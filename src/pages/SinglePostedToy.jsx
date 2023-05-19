@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 const SinglePostedToy = ({singlePostedToy}) => {
     // console.log(singlePostedToy);
@@ -28,7 +29,8 @@ const SinglePostedToy = ({singlePostedToy}) => {
         <td>{quantity ? quantity : 'quantity not found'}</td>
         <td>{email}</td>
         <th>
-          <button className="btn btn-ghost btn-xs">details</button>
+           <Link  to = {`/posted/${_id}`}><button className="btn btn-ghost btn-xs">details</button></Link>
+           
         </th>
       </tr>
     );

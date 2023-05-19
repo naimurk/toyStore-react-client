@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContex } from '../AuthProvider/AuthProvider'
+import { Link } from "react-router-dom";
+import Login from '../Layout/Login';
 
 const SingleToyCard = ({ singleToy }) => {
     const {toyName,title, img, price, quantity , rating , _id} = singleToy
+    const {user} = useContext(AuthContex)
     // console.log(price,quantity,_id);
     return (
         <div className="card w-96 bg-base-100 shadow-xl">
@@ -10,10 +14,11 @@ const SingleToyCard = ({ singleToy }) => {
                 <h2 className="card-title">{title}</h2>
                 <p className='text-2xl'>{toyName}</p>
                 <p className='font-bold'>price: {price}</p>
+                <p className='font-bold'>available quantity: {quantity}</p>
                 <p>ratings: {rating}</p>
 
                 <div className="card-actions justify-end">
-                    <button className="btn btn-warning">View Details</button>
+                    <Link to={user?.email ? `/category/${_id}` : '/login'} ><button className="btn btn-warning">View Details</button></Link>
                 </div>
             </div>
         </div>
