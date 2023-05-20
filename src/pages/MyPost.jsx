@@ -14,6 +14,18 @@ const MyPost = () => {
             .then(res => res.json())
             .then(data => setPosted(data))
     }, [user, control])
+    
+    const handleAscending = () => {
+        fetch(`http://localhost:5000/ascendingPrice/${user?.email}`)
+            .then(res => res.json())
+            .then(data => setPosted(data))
+    } 
+
+    const handleDescending = () => {
+        fetch(`http://localhost:5000/descendingPrice/${user?.email}`)
+            .then(res => res.json())
+            .then(data => setPosted(data))
+    } 
 
     const handleUpDate = (data) => {
         fetch(`http://localhost:5000/updateJob/${data._id}`, {
@@ -47,11 +59,16 @@ const MyPost = () => {
             })
         }
     }
-
+   
+    
 
     return (
         <div className='mb-11'>
             <h1 className='text-6xl py-24 text-center font-semibold'>My posted Everything</h1>
+            <div className='flex pb-10 justify-center gap-x-6'>
+                 <button onClick={handleAscending} className='btn' > price Low to high</button>
+                 <button onClick={handleDescending} className='btn' > price high to low</button>
+            </div>
             {/* <div className='search-box'>
                 <input type="text" placeholder="Type here" className="input w-full max-w-xs" />
             </div> */}

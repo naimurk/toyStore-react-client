@@ -8,7 +8,7 @@ const SingleToyCard = ({ singleToy }) => {
     const {user} = useContext(AuthContex)
     // console.log(price,quantity,_id);
     return (
-        <div className="card w-full lg:w-96 bg-base-100 shadow-xl">
+        <div data-aos="flip-up"> className="card w-full lg:w-96 bg-base-100 shadow-xl">
             <figure><img className='w-full h-96' src={img} alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className="card-title">{title}</h2>
