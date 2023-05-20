@@ -5,7 +5,7 @@ const Signglegallery = ({singleGallery}) => {
      const {img} = singleGallery
     return (
         <div>
-            <img className='w-80 h-80' src={img} alt="" />
+            <img className='lg:w-80 w-full h-60 lg:h-80' src={img} alt="" />
         </div>
     );
 };

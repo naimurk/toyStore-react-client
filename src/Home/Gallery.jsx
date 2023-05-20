@@ -10,9 +10,10 @@ const Gallery = () => {
     },[])
     // console.log(gallery);
     return (
-        <div>
-            <h1 className='text-7xl font-semibold pb-28 text-center'>Our Collection</h1>
-            <div className='grid grid-cols-1 mg:grid-cols-2 lg:grid-cols-3 gap-5'>
+        <div className='px-5'>
+            <h1 className=' lg:py-24 py-14 text-4xl lg:text-7xl font-semibold  text-center'>Our Collection</h1>
+
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
                 {
                     gallery?.map(singleGallery => <Signglegallery
                     key={singleGallery._id}

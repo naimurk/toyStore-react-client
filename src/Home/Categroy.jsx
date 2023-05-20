@@ -19,8 +19,8 @@ const Categroy = () => {
     }
     // console.log(activetab);
     return (
-        <div>
-        <h1 className='text-7xl font-semibold pb-28 text-center'>Category</h1>
+        <div className='px-5'>
+        <h1 className='text-4xl lg:text-7xl font-semibold  py-16 lg:py-24 text-center'>Category</h1>
   
         <Tabs selectedIndex={activeTabIndex} onSelect={index => setActiveTabIndex(index)}>
           <TabList>
@@ -30,7 +30,7 @@ const Categroy = () => {
           </TabList>
   
           <TabPanel >
-           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+           <div className='grid grid-cols-1 md:grid-cols-2 gap-6 lg:grid-cols-3'>
            {
                 toy && toy.map(singleToy => <SingleToyCard
                 key={singleToy._id}
