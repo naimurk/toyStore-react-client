@@ -5,14 +5,14 @@ const AllToy = () => {
     const [allToys, setAllToys] = useState([]);
     const [searchText , setSearchText] = useState('')
     useEffect(() => {
-        fetch('http://localhost:5000/postedToy')
+        fetch('https://toy-new-server-naimurk.vercel.app/postedToy')
             .then(res => res.json())
             .then(data => setAllToys(data))
     }, [])
     
     const handleSearch = () => {
        
-        fetch(`http://localhost:5000/getJobsByText/${searchText}`)
+        fetch(`https://toy-new-server-naimurk.vercel.app/getJobsByText/${searchText}`)
         .then(res => res.json())
         .then(data => setAllToys(data))
         

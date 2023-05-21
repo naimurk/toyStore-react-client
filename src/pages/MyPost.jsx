@@ -10,25 +10,25 @@ const MyPost = () => {
     const [control, setControl] = useState(false);
     // console.log(user?.email);
     useEffect(() => {
-        fetch(`http://localhost:5000/myPosted/${user?.email}`)
+        fetch(`https://toy-new-server-naimurk.vercel.app/myPosted/${user?.email}`)
             .then(res => res.json())
             .then(data => setPosted(data))
     }, [user, control])
     
     const handleAscending = () => {
-        fetch(`http://localhost:5000/ascendingPrice/${user?.email}`)
+        fetch(`https://toy-new-server-naimurk.vercel.app/ascendingPrice/${user?.email}`)
             .then(res => res.json())
             .then(data => setPosted(data))
     } 
 
     const handleDescending = () => {
-        fetch(`http://localhost:5000/descendingPrice/${user?.email}`)
+        fetch(`https://toy-new-server-naimurk.vercel.app/descendingPrice/${user?.email}`)
             .then(res => res.json())
             .then(data => setPosted(data))
     } 
 
     const handleUpDate = (data) => {
-        fetch(`http://localhost:5000/updateJob/${data._id}`, {
+        fetch(`https://toy-new-server-naimurk.vercel.app/updateJob/${data._id}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data),
@@ -46,7 +46,7 @@ const MyPost = () => {
         // console.log(id);
         const proceed = confirm('are you sure')
         if(proceed){
-            fetch (`http://localhost:5000/deleted/${id}`, {
+            fetch (`https://toy-new-server-naimurk.vercel.app/deleted/${id}`, {
                 method : 'DELETE'
             })
             .then(res => res.json())

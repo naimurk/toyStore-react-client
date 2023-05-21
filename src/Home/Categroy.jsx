@@ -9,7 +9,7 @@ const Categroy = () => {
     const [toy, setToy] = useState([])
     
     useEffect(()=> {
-        fetch(`http://localhost:5000/toys/${activetab}`)
+        fetch(`https://toy-new-server-naimurk.vercel.app/toys/${activetab}`)
         .then(res => res.json())
         .then(data =>setToy(data))
     },[activetab])

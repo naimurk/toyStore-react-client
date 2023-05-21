@@ -53,12 +53,12 @@ const router = createBrowserRouter([
       {
         path : '/category/:id',
         element : <SingleSpecific></SingleSpecific>,
-        loader : ({params})=> fetch(`http://localhost:5000/toys/singleToys/${params.id}`)
+        loader : ({params})=> fetch(`https://toy-new-server-naimurk.vercel.app/toys/singleToys/${params.id}`)
       },
       {
         path : '/posted/:id',
         element : <SingleMySpecific></SingleMySpecific>,
-        loader : ({params}) => fetch(`http://localhost:5000/postedToy/${params.id}`)
+        loader : ({params}) => fetch(`https://toy-new-server-naimurk.vercel.app/postedToy/${params.id}`)
       },
       {
         path : '/blog', 

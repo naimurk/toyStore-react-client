@@ -4,7 +4,7 @@ import Signglegallery from './Signglegallery';
 const Gallery = () => {
     const [gallery , setgallery ] = useState([])
     useEffect(()=> {
-        fetch('http://localhost:5000/toys')
+        fetch('https://toy-new-server-naimurk.vercel.app/toys')
         .then(res => res.json())
         .then(data => setgallery(data))
     },[])
