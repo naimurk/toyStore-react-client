@@ -34,7 +34,7 @@ Here are some related projects
 
 ## My project link
 
- - [My project link](https://awesomeopensource.com/project/elangosundar/awesome-README-templates)
+ - [My project link](https://timely-frangipane-affd14.netlify.app/)
 
 
 ## Deployment
