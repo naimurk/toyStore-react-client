@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { AuthContex } from '../AuthProvider/AuthProvider';
 
 const SingleMyPosted = ({ singleMyPosted, handleUpDate, handleDelete }) => {
-  const {user} = useContext(AuthContex)
+  const { user } = useContext(AuthContex)
   // console.log(singleMyPosted);
   const { toyname, title, photo, price, email, name, quantity, category, rating, _id } = singleMyPosted;
 
@@ -65,7 +65,7 @@ const SingleMyPosted = ({ singleMyPosted, handleUpDate, handleDelete }) => {
       <td>{quantity ? quantity : 'quantity not found'}</td>
       <td>{email}</td>
       <th>
-        <Link to={ user?.email ? `/posted/${_id}` : '/login' }><button className="btn btn-ghost btn-xs">details</button></Link>
+        <Link to={user?.email ? `/posted/${_id}` : '/login'}><button className="btn btn-ghost btn-xs">details</button></Link>
 
       </th>
       <th>
@@ -80,12 +80,68 @@ const SingleMyPosted = ({ singleMyPosted, handleUpDate, handleDelete }) => {
             <form onSubmit={handleSubmit} >
 
               <div className='grid grid-cols-1 gap-7 lg:grid-cols-2'>
-                <input type="text" defaultValue={toyname} placeholder='toy name' name="toyname" className="input input-bordered input-warning w-full max-w-xs" />
-                <input type="text" defaultValue={_id} placeholder='id' name="id" className="  hidden input input-bordered input-warning w-full max-w-xs" />
-                <input type="text" defaultValue={price} placeholder='price' name="price" className="input input-bordered input-warning w-full max-w-xs" />
-                <input type="text" defaultValue={quantity} placeholder='quantity' name="quantity" className="input input-bordered input-warning w-full max-w-xs" />
-                <input type="text" defaultValue={title} placeholder='title' name="title" className="input input-bordered input-warning w-full max-w-xs" />
-                <input type="text" defaultValue={photo} placeholder='photo' name="photo" className="input input-bordered input-warning w-full max-w-xs" />
+
+
+
+                <div className="form-control w-full max-w-xs">
+                  <label className="label">
+                    <span className="label-text">Toy name</span>
+                    
+                  </label>
+                  <input type="text" defaultValue={toyname} placeholder='toy name' name="toyname" className="input input-bordered input-warning w-full max-w-xs" />
+                  
+                </div>
+                <div className="form-control hidden w-full max-w-xs">
+                  <label className="label">
+                    <span className="label-text">Toy name</span>
+                    
+                  </label>
+                  <input type="text" defaultValue={_id} placeholder='id' name="id" className="  hidden input input-bordered input-warning w-full max-w-xs" />
+                  
+                </div>
+                <div className="form-control w-full max-w-xs">
+                  <label className="label">
+                    <span className="label-text">price</span>
+                    
+                  </label>
+                  <input type="text" defaultValue={price} placeholder='price' name="price" className="input input-bordered input-warning w-full max-w-xs" />
+                  
+                </div>
+
+                <div className="form-control w-full max-w-xs">
+                  <label className="label">
+                    <span className="label-text">quantity</span>
+                    
+                  </label>
+                  <input type="text" defaultValue={quantity} placeholder='quantity' name="quantity" className="input input-bordered input-warning w-full max-w-xs" />
+                  
+                </div>
+                <div className="form-control w-full max-w-xs">
+                  <label className="label">
+                    <span className="label-text">title</span>
+                    
+                  </label>
+                  <input type="text" defaultValue={title} placeholder='title' name="title" className="input input-bordered input-warning w-full max-w-xs" />
+                  
+                </div>
+                <div className="form-control w-full max-w-xs">
+                  <label className="label">
+                    <span className="label-text">photo url</span>
+                    
+                  </label>
+                  <input type="text" defaultValue={photo} placeholder='photo' name="photo" className="input input-bordered input-warning w-full max-w-xs" />
+                  
+                </div>
+                
+
+
+
+                
+               
+               
+                
+                
+                
               </div>
 
               <input type="submit" className='btn btn-block btn-warning' value="update post" />
@@ -99,7 +155,7 @@ const SingleMyPosted = ({ singleMyPosted, handleUpDate, handleDelete }) => {
         {/* end modal */}
       </th>
       <th>
-        <button onClick={()=> handleDelete(_id)} className="btn btn-circle">
+        <button onClick={() => handleDelete(_id)} className="btn btn-circle">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
         </button>
       </th>

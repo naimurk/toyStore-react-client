@@ -30,7 +30,7 @@ const Navbar = () => {
       <div className="navbar-center">
         <div className="hidden lg:flex">
 
-          <li className="list-none mx-3 text-lg"><Link>Home</Link></li>
+          <li className="list-none mx-3 text-lg"><Link to={'/'} >Home</Link></li>
           {
             user?.email ? <>
               <li className="list-none mx-3 text-lg"><Link to={'/myPosted'}>My toys</Link></li>

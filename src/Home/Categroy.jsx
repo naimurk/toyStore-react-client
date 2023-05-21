@@ -32,7 +32,7 @@ const Categroy = () => {
           <TabPanel >
            <div className='grid grid-cols-1 md:grid-cols-2 gap-6 lg:grid-cols-3'>
            {
-                toy && toy.map(singleToy => <SingleToyCard
+                toy && toy?.map(singleToy => <SingleToyCard
                 key={singleToy._id}
                 singleToy = {singleToy}
                 ></SingleToyCard>)

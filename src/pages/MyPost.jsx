@@ -90,7 +90,7 @@ const MyPost = () => {
                 <tbody>
                     {/* row 1 */}
                     {
-                        posted && posted.map(singleMyPosted => <SingleMyPosted
+                        posted && posted?.map(singleMyPosted => <SingleMyPosted
                             key={singleMyPosted._id}
                             singleMyPosted={singleMyPosted}
                             handleUpDate = {handleUpDate}

@@ -1,13 +1,24 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContex } from '../AuthProvider/AuthProvider';
+import { Link } from "react-router-dom";
 
 const Footer = () => {
+  const {user} = useContext(AuthContex)
     return (
         <footer className="footer footer-center p-10 bg-base-200 text-base-content rounded">
-        <div className="grid grid-flow-col gap-4">
-          <a className="link link-hover">About us</a> 
-          <a className="link link-hover">Contact</a> 
-          <a className="link link-hover">Jobs</a> 
-          <a className="link link-hover">Press kit</a>
+        <div className="grid  lg:grid-flow-col gap-4">
+        <li className="list-none mx-3 text-lg"><Link to={'/'} >Home</Link></li>
+        {
+            user?.email ? <>
+              <li className="list-none mx-3 text-lg"><Link to={'/myPosted'}>My toys</Link></li>
+              <li className="list-none mx-3 text-lg"><Link to={'/addPost'} >Add toys</Link></li>
+            </> : ''
+            // user?.email ? <li className="list-none mx-3 text-lg"><Link to={'/myPosted'}>My toys</Link></li>
+            //  : 
+          }
+          <li className="list-none mx-3 text-lg"><Link to={'/allPostedToy'} >All toys</Link></li>
+          <li className="list-none mx-3 text-lg"><Link to={'/blog'} >Blog</Link></li>
+
         </div> 
         <div>
           <div className="grid grid-flow-col gap-4">
@@ -17,7 +28,7 @@ const Footer = () => {
           </div>
         </div> 
         <div>
-          <p>Copyright © 2023 - All right reserved by ACME Industries Ltd</p>
+          <p>Copyright © 2023 - All right reserved by ATS Ltd</p>
         </div>
       </footer>
     );

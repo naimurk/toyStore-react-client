@@ -46,7 +46,7 @@ const AllToy = () => {
                 <tbody>
                     {/* row 1 */}
                     {
-                        allToys && allToys.map(singlePostedToy => <SinglePostedToy
+                        allToys && allToys?.map(singlePostedToy => <SinglePostedToy
                             key={singlePostedToy._id}
                             singlePostedToy={singlePostedToy}
                         ></SinglePostedToy>)
